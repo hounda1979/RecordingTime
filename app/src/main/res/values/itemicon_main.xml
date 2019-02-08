@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="icon_main">
+        <item>依硬碟大小</item>
+        <item>依錄影時間</item>
+        <item>記錄</item>
+        <item>關於</item>
+    </string-array>
+</resources>

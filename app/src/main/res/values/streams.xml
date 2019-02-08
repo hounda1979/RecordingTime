@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="MainStream">
+        <item>512</item>
+        <item>768</item>
+        <item>1024</item>
+        <item>2048</item>
+        <item>3072</item>
+        <item>4097</item>
+        <item>6144</item>
+        <item>8192</item>
+        <item>10240</item>
+    </string-array>
+    <string-array name="Hdds">
+        <item>1TB</item>
+        <item>2TB</item>
+        <item>3TB</item>
+        <item>4TB</item>
+        <item>6TB</item>
+        <item>8TB</item>
+        <item>10TB</item>
+    </string-array>
+</resources>
