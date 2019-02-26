@@ -147,7 +147,9 @@
         android:layout_marginStart="8dp"
         android:layout_marginTop="40dp"
         android:layout_marginEnd="8dp"
+        android:background="@drawable/buttontype"
         android:text="完成"
+        android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.201"
         app:layout_constraintStart_toEndOf="@+id/toLine"
@@ -158,7 +160,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="24dp"
-        android:text="影像CH數:"
+        android:text="攝影機數:"
         android:textAppearance="@style/TextAppearance.AppCompat.Large"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="@+id/textView13"
@@ -192,5 +194,5 @@
         android:layout_marginTop="32dp"
         app:layout_constraintStart_toStartOf="@+id/textView16"
         app:layout_constraintTop_toBottomOf="@+id/textView16"
-        app:srcCompat="@drawable/line" />
+        app:srcCompat="@drawable/share" />
 </android.support.constraint.ConstraintLayout>

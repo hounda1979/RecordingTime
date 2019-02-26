@@ -1,6 +1,7 @@
 package tw.hd.com.recodtime;
 
 import android.content.ContentValues;
+import android.content.Context;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -9,15 +10,18 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
+import android.widget.SeekBar;
 import android.widget.Spinner;
+import android.widget.TextView;
 import android.widget.Toast;
 
 public class ByHddActivity extends AppCompatActivity {
 
     private static final String TAG = ByHddActivity.class.getSimpleName();
-    private EditText edit_ch;
+    SeekBar  edit_ch;
     private int[] hddarray ={0,0,0};
     String temp,temp1;
+    private TextView edittext;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,7 +33,32 @@ public class ByHddActivity extends AppCompatActivity {
     }
 
     private void setView() {
+        edittext = findViewById(R.id.text_seek_byhdd);
         edit_ch = findViewById(R.id.edit_hdd_ch);
+        edit_ch.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
+            @Override
+            public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
+                hddarray[2] = progress;
+                edittext.setText(String.valueOf(hddarray[2]));
+                float textwidth = edittext.getWidth();
+                float seekleft = edit_ch.getLeft();
+                float max = Math.abs(edit_ch.getMax());
+                float thumb = dip2px(ByHddActivity.this,15);
+                float average = ((float)edit_ch.getWidth()-2*thumb)/max;
+                float pox = seekleft - textwidth/2 + thumb +average *(float)progress;
+                edittext.setX(pox);
+            }
+
+            @Override
+            public void onStartTrackingTouch(SeekBar seekBar) {
+
+            }
+
+            @Override
+            public void onStopTrackingTouch(SeekBar seekBar) {
+
+            }
+        });
         Spinner spinner_hdd = findViewById(R.id.spinner_hdd);
         final ArrayAdapter<CharSequence> adapterHdd = ArrayAdapter.createFromResource(this,
                 R.array.Hdds, android.R.layout.simple_spinner_item);
@@ -68,10 +97,16 @@ public class ByHddActivity extends AppCompatActivity {
         });
     }
 
-    public void hdd_ok(View view){
-        String temp123 = edit_ch.getText().toString();
+    private int dip2px(Context context, float dpValue) {
+        final float scale = context.getResources().getDisplayMetrics().density;
+        return (int)(dpValue*scale + 0.5f);
 
-        hddarray[2] = Integer.parseInt(temp123);
+    }
+
+    public void hdd_ok(View view){
+//        String temp123 = edit_ch.getText().toString();
+
+//        hddarray[2] = Integer.parseInt(temp123);
         switch (temp){
             case "1TB":
                 hddarray[0] = 1;

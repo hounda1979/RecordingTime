@@ -1,4 +1,4 @@
 <resources>
-    <string name="app_name">recodtime</string>
+    <string name="app_name">Dvr/Nvr 錄影時間計算</string>
     <string name="title_activity_history">HistoryActivity</string>
 </resources>

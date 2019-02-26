@@ -57,15 +57,12 @@ public class ResultActivity extends AppCompatActivity {
         toLine.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                ComponentName componentName = new ComponentName("jp.naver.line.android"
-                        , "jp.naver.line.android.activity.selectchat.SelectChatActivity");
                 Intent shareToLine = new Intent();
                 shareToLine.setAction(Intent.ACTION_SEND);
                 shareToLine.setType("text/plain");
                 shareToLine.putExtra(Intent.EXTRA_SUBJECT,"DVR/NVR 錄影計算結果");
-                shareToLine.putExtra(Intent.EXTRA_TEXT,"CH數 : "+ch+" 碼流 : "+stream+" Hdd大小 : "+ hdd+" 數影天數 : "+day);
-                shareToLine.setComponent(componentName);
-                startActivity(Intent.createChooser(shareToLine,"Line"));
+                shareToLine.putExtra(Intent.EXTRA_TEXT,"攝影機 :  "+ch+" 碼流 : "+stream+" Hdd容量 : "+ hdd+" 錄影天數 : "+day);
+                startActivity(Intent.createChooser(shareToLine,""));
 
             }
         });
